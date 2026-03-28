@@ -1,0 +1,143 @@
+SQL> SELECT * FROM EMPLOYEE;
+
+    EMP_NO EMP_NAME           EMP_SAL EMP_COMM           DEPT_NO
+---------- --------------- ---------- --------------- ----------
+       101 SMITH                  800                         20
+       102 SNEHAL                1600 300                     25
+       103 ADAMA                 1100 0                       20
+       104 AMAN                  3000                         15
+       105 ANITA                 5000 5000                    10
+       106 SNEHA                 2450 2450                    10
+       107 ANAMIKA               2975                         30
+
+7 rows selected.
+
+
+SQL> SELECT * FROM JOB;
+
+JOB_ID          JOB_NAME           MIN_SAL    MAX_SAL
+--------------- --------------- ---------- ----------
+IT_PROG         PROGRAMMER            4000      10000
+MK_MGR          MARKETMANAGER         9000      15000
+FI_MGR          FINANCEMANAGER        8200      12000
+FI_ACC          ACCOUNT               4200       9000
+LEC             LECTURER              6000      17000
+COMP_OP         COMPUTEOPERATOR       6000      17000
+
+6 rows selected.
+
+SQL> SELECT * FROM DEPOSIT2;
+
+      A_NO CNAME           BNAME               AMOUNT D_ATE
+---------- --------------- --------------- ---------- ---------
+       101 ANIL            ANDHERI               7000 01-JAN-06
+       102 SUNIL           VIRAR                 5000 15-JUL-06
+       103 JAY             VILLEPARLE            6500 12-MAR-06
+       104 VIJAY           ANDHERI               8000 17-SEP-06
+       105 KEYUR           DADAR                 7500 19-NOV-06
+       106 MAYUR           BORIVALI              5500 21-DEC-06
+
+6 rows selected.
+
+SQL> SELECT A_NO,CNAME,AMOUNT FROM DEPOSIT2 WHERE D_ATE BETWEEN '01-JAN-2006' AND '25-JUL-2006';
+
+      A_NO CNAME               AMOUNT
+---------- --------------- ----------
+       101 ANIL                  7000
+       102 SUNIL                 5000
+       103 JAY                   6500
+
+SQL> SELECT JOB_NAME FROM JOB WHERE MIN_SAL>4000;
+
+JOB_NAME
+---------------
+MARKETMANAGER
+FINANCEMANAGER
+ACCOUNT
+LECTURER
+COMPUTEOPERATOR
+
+
+SQL> SELECT EMP_NAME,EMP_SAL FROM EMPLOYEE WHERE DEPT_NO = '20';
+
+EMP_NAME           EMP_SAL                                                      
+--------------- ----------                                                      
+SMITH                  800                                                      
+ADAMA                 1100                                                      
+
+SQL> SELECT EMP_NO,EMP_NAME,DEPT_NO FROM EMPLOYEE WHERE DEPT_NO BETWEEN '10' AND '20';
+
+    EMP_NO EMP_NAME           DEPT_NO                                           
+---------- --------------- ----------                                           
+       101 SMITH                   20                                           
+       103 ADAMA                   20                                           
+       104 AMAN                    15                                           
+       105 ANITA                   10                                           
+       106 SNEHA                   10                                           
+
+
+SQL> SELECT * FROM EMPLOYEE WHERE EMP_NAME LIKE 'A%';
+
+    EMP_NO EMP_NAME           EMP_SAL EMP_COMM           DEPT_NO                
+---------- --------------- ---------- --------------- ----------                
+       103 ADAMA                 1100 0                       20                
+       104 AMAN                  3000                         15                
+       105 ANITA                 5000 5000                    10                
+       107 ANAMIKA               2975                         30                
+
+
+SQL> SELECT * FROM EMPLOYEE WHERE EMP_NAME LIKE '__A%';
+
+    EMP_NO EMP_NAME           EMP_SAL EMP_COMM           DEPT_NO                
+---------- --------------- ---------- --------------- ----------                
+       103 ADAMA                 1100 0                       20                
+       104 AMAN                  3000                         15                
+       107 ANAMIKA               2975                         30                
+
+SQL> SELECT * FROM EMPLOYEE WHERE EMP_NAME LIKE 'A_A%';
+
+    EMP_NO EMP_NAME           EMP_SAL EMP_COMM           DEPT_NO                
+---------- --------------- ---------- --------------- ----------                
+       103 ADAMA                 1100 0                       20                
+       104 AMAN                  3000                         15                
+       107 ANAMIKA               2975                         30                
+
+SQL> SELECT EMP_NAME,EMP_NO,EMP_SAL FROM EMPLOYEE WHERE EMP_NAME LIKE 'ANI__%';
+
+EMP_NAME            EMP_NO    EMP_SAL                                           
+--------------- ---------- ----------                                           
+ANITA                  105       5000                                           
+
+
+SQL> SELECT * FROM DEPOSIT2 ORDER BY CNAME;
+
+      A_NO CNAME           BNAME               AMOUNT D_ATE                     
+---------- --------------- --------------- ---------- ---------                 
+       101 ANIL            ANDHERI               7000 01-JAN-06                 
+       103 JAY             VILLEPARLE            6500 12-MAR-06                 
+       105 KEYUR           DADAR                 7500 19-NOV-06                 
+       106 MAYUR           BORIVALI              5500 21-DEC-06                 
+       102 SUNIL           VIRAR                 5000 15-JUL-06                 
+       104 VIJAY           ANDHERI               8000 17-SEP-06                 
+
+6 rows selected.
+
+SQL> SELECT CNAME FROM DEPOSIT2;
+
+CNAME                                                                           
+---------------                                                                 
+ANIL                                                                            
+SUNIL                                                                           
+JAY                                                                             
+VIJAY                                                                           
+KEYUR                                                                           
+MAYUR                                                                           
+
+6 rows selected.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SPOOL OFF
+

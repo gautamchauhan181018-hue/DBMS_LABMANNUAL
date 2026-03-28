@@ -1,0 +1,155 @@
+SQL> CREATE TABLE CUST_MASTER(
+  2  CUST_NO VARCHAR2(15),
+  3  CUST_NAME VARCHAR2(15),
+  4  ADDRESS1 VARCHAR2(15),
+  5  ADDRESS2 VARCHAR2(15),
+  6  CITY VARCHAR2(15),
+  7  STATE VARCHAR2(15),
+  8  PH_NO NUMBER(15)
+  9  );
+
+Table created.
+
+SQL> INSERT INTO CUST_MASTER VALUES('C1','PRIYA','RINGROAD', 'PUJA PARK','AHMEDABAD','GUJARAT','8989878548');
+
+1 row created.
+
+SQL> INSERT INTO CUST_MASTER VALUES('C2','PUJA','LAJPAT NAGER', 'SHYAMLAL COLONY','BANARAS','UP','7898456213');
+
+1 row created.
+
+SQL> INSERT INTO CUST_MASTER VALUES('C3','ANKIT','BORIVALI', 'PANCHAYAT NAGER','MUMBAI','MAHARASTRA','7885984251');
+
+1 row created.
+
+SQL> INSERT INTO CUST_MASTER VALUES('C4','RAVI','VAJDIROAD', 'NANDBHOOMI COLONY','DELHI','DELHI','7898452034');
+INSERT INTO CUST_MASTER VALUES('C4','RAVI','VAJDIROAD', 'NANDBHOOMI COLONY','DELHI','DELHI','7898452034')
+                                                        *
+ERROR at line 1:
+ORA-12899: value too large for column "GAUTAMCHAUHAN"."CUST_MASTER"."ADDRESS2"
+(actual: 17, maximum: 15)
+
+
+SQL> INSERT INTO CUST_MASTER VALUES('C4','RAVI','VAJDIROAD', 'NANDBHOOMI','DELHI','DELHI','7898452034');
+
+1 row created.
+
+SQL> INSERT INTO CUST_MASTER VALUES('C5','ALPHA','JAMNAGER ROAD', 'RAILWAY COLONY','AHMEDABAD','GUJARAT','7465241589');
+
+1 row created.
+
+SQL> SELECT * FROM CUST_MASTER;
+
+CUST_NO         CUST_NAME       ADDRESS1        ADDRESS2        CITY
+--------------- --------------- --------------- --------------- ---------------
+STATE                PH_NO
+--------------- ----------
+C1              PRIYA           RINGROAD        PUJA PARK       AHMEDABAD
+GUJARAT         8989878548
+
+C2              PUJA            LAJPAT NAGER    SHYAMLAL COLONY BANARAS
+UP              7898456213
+
+C3              ANKIT           BORIVALI        PANCHAYAT NAGER MUMBAI
+MAHARASTRA      7885984251
+
+
+CUST_NO         CUST_NAME       ADDRESS1        ADDRESS2        CITY
+--------------- --------------- --------------- --------------- ---------------
+STATE                PH_NO
+--------------- ----------
+C4              RAVI            VAJDIROAD       NANDBHOOMI      DELHI
+DELHI           7898452034
+
+C5              ALPHA           JAMNAGER ROAD   RAILWAY COLONY  AHMEDABAD
+GUJARAT         7465241589
+
+
+SQL> SELECT * FROM CUST_MASTER WHERE STATE = 'GUJARAT';
+
+CUST_NO         CUST_NAME       ADDRESS1        ADDRESS2        CITY
+--------------- --------------- --------------- --------------- ---------------
+STATE                PH_NO
+--------------- ----------
+C1              PRIYA           RINGROAD        PUJA PARK       AHMEDABAD
+GUJARAT         8989878548
+
+C5              ALPHA           JAMNAGER ROAD   RAILWAY COLONY  AHMEDABAD
+GUJARAT         7465241589
+
+
+SQL> SELECT * FROM CUST_MASTER ORDER BY CUST_NAME;
+
+CUST_NO         CUST_NAME       ADDRESS1        ADDRESS2        CITY
+--------------- --------------- --------------- --------------- ---------------
+STATE                PH_NO
+--------------- ----------
+C5              ALPHA           JAMNAGER ROAD   RAILWAY COLONY  AHMEDABAD
+GUJARAT         7465241589
+
+C3              ANKIT           BORIVALI        PANCHAYAT NAGER MUMBAI
+MAHARASTRA      7885984251
+
+C1              PRIYA           RINGROAD        PUJA PARK       AHMEDABAD
+GUJARAT         8989878548
+
+
+CUST_NO         CUST_NAME       ADDRESS1        ADDRESS2        CITY
+--------------- --------------- --------------- --------------- ---------------
+STATE                PH_NO
+--------------- ----------
+C2              PUJA            LAJPAT NAGER    SHYAMLAL COLONY BANARAS
+UP              7898456213
+
+C4              RAVI            VAJDIROAD       NANDBHOOMI      DELHI
+DELHI           7898452034
+
+
+SQL> SELECT DISTINCT CITY FROM CUST_MASTER;
+
+CITY
+---------------
+MUMBAI
+DELHI
+BANARAS
+AHMEDABAD
+
+                                                                                
+
+
+SQL> UPDATE CUST_MASTER SET ADDRESS1 = 'CG ROAD' WHERE CUST_NAME = 'PRIYA';
+
+1 row updated.
+
+
+SQL> SELECT CITY FROM CUST_MASTER WHERE STATE = 'GUJARAT';
+
+CITY                                                                            
+---------------                                                                 
+AHMEDABAD                                                                       
+AHMEDABAD                                                                       
+
+SQL> ALTER TABLE CUST_MASTER ADD(
+  2  PINCODE NUMBER(8)
+  3  );
+
+Table altered.
+
+SQL> ALTER TABLE CUST_MASTER DROP COLUMN PINCODE;
+
+Table altered.
+
+SQL> DELETE FROM CUST_MASTER WHERE PH_NO = 7898452034;
+
+1 row deleted.
+
+SQL> ALTER TABLE CUST_MASTER RENAME TO CUSTOMER_DETAIL;
+
+Table altered.
+
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SPOOL OFF

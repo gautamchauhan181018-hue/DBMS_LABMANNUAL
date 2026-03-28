@@ -1,0 +1,208 @@
+SQL> ALTER TABLE BANK_BRANCH MODIFY(
+  2  BRANCH_STATE VARCHAR2(50)
+  3  );
+
+Table altered.
+
+SQL> UPDATE BANK_BRANCH SET BRANCH_NAME  = 'UNION' WHERE BRANCH_ID = 'BOO3';
+
+1 row updated.
+
+SQL> UPDATE BANK_BRANCH SET BRANCH_STATE ='DELHI' WHERE BRANCH_NAME = 'BOI';
+
+1 row updated.
+
+SQL> UPDATE BANK_BRANCH SET BRANCH_OPEN_DATE = '04-NOV-2015' WHERE BRANCH_NAME = 'UNION';
+
+1 row updated.
+
+SQL> ALTER TABLE BANK_BRANCH ADD(
+  2  PINCODE NUMBER(8)
+  3  );
+
+Table altered.
+
+SQL> INSERT INTO BANK_BRANCH (PINCODE) VALUES('360006');
+
+1 row created.
+
+
+SQL> DELETE FROM BANK_BRANCH WHERE BRANCH_OPEN_DATE = '07-MAY-2011';
+
+1 row deleted.
+
+SQL> ALTER TABLE BANK_BRANCH RENAME TO BRANCH_MASTER;
+
+Table altered.
+
+SQL> SELECT * FROM BRANCH_MASTER;
+
+BRANCH_ID       BRANCH_NAME     BRANCH_ADDRESS  BRANCH_CITY                     
+--------------- --------------- --------------- ---------------                 
+BRANCH_STATE                                       BRANCH_OP    PINCODE         
+-------------------------------------------------- --------- ----------         
+BOO1            BOI             JAGNATHROAD     RAJKOT                          
+DELHI                                              22-MAR-15                    
+                                                                                
+BOO2            SBI             BORIWALI ROAD   MUMBAI                          
+MAHARASHTRA                                        12-JAN-00                    
+                                                                                
+BOO3            UNION           AGRAROAD        AGRA                            
+UP                                                 04-NOV-15                    
+                                                                                
+
+BRANCH_ID       BRANCH_NAME     BRANCH_ADDRESS  BRANCH_CITY                     
+--------------- --------------- --------------- ---------------                 
+BRANCH_STATE                                       BRANCH_OP    PINCODE         
+-------------------------------------------------- --------- ----------         
+BOO4            DENABANK        CGROAD          AHMEDABAD                       
+GUJARAT                                            20-SEP-12                    
+                                                                                
+                                                                                
+                                                                 360006 
+
+SQL> CREATE TABLE BRANCH_INFO(
+  2  BRANCH_ID VARCHAR2(15),
+  3  BRANCH_NAME VARCHAR2(15),
+  4  BRANCH_ADDRESS VARCHAR2(15),
+  5  BRANCH_CITY VARCHAR2(15),
+  6  BRANCH_STATE VARCHAR2(15),
+  7  BRANCH_OPEN_DATE DATE
+  8  );
+
+Table created.
+
+
+
+SQL> INSERT INTO BRANCH_INFO VALUES('BOO1','BOI','JAGNATHROAD','RAJKOT','GUJARAT','22-MAR-2015');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH_INFO VALUES('BOO2','SBI','BORIWALI ROAD','MUMBAI','MAHARASHTRA','12-JAN-2000');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH_INFO VALUES('BOO3','HDFC','AGRAROAD','AGRA','UP','04-FEB-1998');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH_INFO VALUES('BOO4','DENABANK','CGROAD','AHMEDABAD','GUJARAT','20-SEP-2012');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH_INFO VALUES('BOO5','ICICI','MAJAVDIROAD','JUNAGADH','GUJARAT','07-MAY-2011');
+
+1 row created.
+
+SQL> CREATE TABLE JOB(
+  2  JOB_ID VARCHAR2(15),
+  3  JOB_NAME VARCHAR2(15),
+  4  MIN_SAL NUMBER(14),
+  5  MAX_SAL NUMBER(14)
+  6  );
+
+Table created.
+
+SQL> INSERT INTO JOB VALUES('IT_PROG','PROGRAMMER','4000','10000');
+
+1 row created.
+
+
+SQL> INSERT INTO JOB VALUES('MK_MGR','MARKETMANAGER','9000','15000');
+
+1 row created.
+
+SQL> INSERT INTO JOB VALUES('FI_MGR','FINANCEMANAGER','8200','12000');
+
+1 row created.
+
+SQL> INSERT INTO JOB VALUES('FI_ACC','ACCOUNT','4200','9000');
+
+1 row created.
+
+SQL> INSERT INTO JOB VALUES('LEC','LECTURER','6000','17000');
+
+1 row created.
+
+SQL> INSERT INTO JOB VALUES('COMP_OP','COMPUTEOPERATOR','6000','17000');
+
+1 row created.
+
+SQL> CREATE TABLE EMPLOYEE(
+  2  EMP_NO NUMBER(10),
+  3  EMP_NAME VARCHAR2(15),
+  4  EMP_SAL NUMBER(10),
+  5  EMP_COMM VARCHAR2(15),
+  6  DEPT_NO NUMBER(10)
+  7  );
+
+Table created.
+
+SQL> INSERT INTO EMPLOYEE VALUES('101','SMITH','800','','20');
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES('102','SNEHAL','1600','300','25');
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES('103','ADAMA','1100','0','20');
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES('104','AMAN','3000','','15');
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES('105','ANITA','5000','5000','10');
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES('106','SNEHA','2450','2450','10');
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES('107','ANAMIKA','2975','','30');
+
+1 row created.
+ 
+SQL> CREATE TABLE DEPOSIT2(
+  2  A_NO NUMBER(10),
+  3  CNAME VARCHAR2(15),
+  4  BNAME VARCHAR2(15),
+  5  AMOUNT NUMBER(10),
+  6  D_ATE DATE
+  7  );
+
+Table created.
+
+SQL> INSERT INTO DEPOSIT2 VALUES('101','ANIL','ANDHERI','7000','01-JAN-2006');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT2 VALUES('102','SUNIL','VIRAR','5000','15-JULY-2006');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT2 VALUES('103','JAY','VILLEPARLE','6500','12-MAR-2006');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT2 VALUES('104','VIJAY','ANDHERI','8000','17-SEP-2006');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT2 VALUES('105','KEYUR','DADAR','7500','19-NOV-2006');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT2 VALUES('106','MAYUR','BORIVALI','5500','21-DEC-2006');
+
+1 row created.
+                                                                               
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SPOOL OFF
